@@ -263,7 +263,7 @@ public interface OverrideEntityQueryable7<T1Proxy extends ProxyEntity<T1Proxy, T
             AggregateQueryable<T4Proxy, T4>, T4,
             AggregateQueryable<T5Proxy, T5>, T5,
             AggregateQueryable<T6Proxy, T6>, T6,
-            AggregateQueryable<T7Proxy, T7>, T7> toAggregate() {
+            AggregateQueryable<T7Proxy, T7>, T7> groupBy() {
         return new EasyEntityQueryable7<>(
                 AggregateQueryable.of(this.get1Proxy())
                 , AggregateQueryable.of(this.get2Proxy())

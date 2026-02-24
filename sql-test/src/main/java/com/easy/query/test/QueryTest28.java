@@ -154,7 +154,7 @@ public class QueryTest28 extends BaseTest {
                     t.title().isNotNull();
                     t.createTime().le(LocalDateTime.of(2021, 3, 4, 5, 6));
                 })
-                .toAggregate()
+                .groupBy()
                 .select((t_topic, t_blog) -> {
                     return Select.DRAFT.of(
                             t_topic.count(),
@@ -176,7 +176,7 @@ public class QueryTest28 extends BaseTest {
         List<Draft2<Long, BigDecimal>> list1 = easyEntityQuery.queryable(Topic.class)
                 .configure(s -> s.getBehavior().add(EasyBehaviorEnum.ALL_SUB_QUERY_GROUP_JOIN))
                 .where(t_topic -> t_topic.title().contains("123"))
-                .toAggregate()
+                .groupBy()
                 .select(t_topic -> Select.DRAFT.of(
                         t_topic.count(),
                         t_topic.avg(s -> s.stars())

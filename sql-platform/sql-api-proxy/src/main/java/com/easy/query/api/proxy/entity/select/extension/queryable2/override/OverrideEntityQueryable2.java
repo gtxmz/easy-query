@@ -249,7 +249,7 @@ public interface OverrideEntityQueryable2<T1Proxy extends ProxyEntity<T1Proxy, T
     EntityQueryable2<T1Proxy, T1, T2Proxy, T2> configure(SQLActionExpression1<ContextConfigurer> configurer);
 
     @Override
-    default EntityQueryable2<AggregateQueryable<T1Proxy, T1>, T1, AggregateQueryable<T2Proxy, T2>, T2> toAggregate() {
+    default EntityQueryable2<AggregateQueryable<T1Proxy, T1>, T1, AggregateQueryable<T2Proxy, T2>, T2> groupBy() {
         return new EasyEntityQueryable2<>(AggregateQueryable.of(this.get1Proxy()), AggregateQueryable.of(this.get2Proxy()), this.getQueryable2().getClientQueryable2());
     }
 }
