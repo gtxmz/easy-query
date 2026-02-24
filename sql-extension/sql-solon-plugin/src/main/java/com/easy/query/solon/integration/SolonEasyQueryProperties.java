@@ -232,7 +232,7 @@ public class SolonEasyQueryProperties {
 
     public NameConversionEnum getNameConversion() {
         return getOrDef("name-conversion", nameConversion, v -> {
-            switch (v) {
+            switch (v == null ? null : v.toLowerCase()) {
                 case "default":
                     return NameConversionEnum.DEFAULT;
                 case "underlined":
